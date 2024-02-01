@@ -19,5 +19,10 @@ namespace InfoSecLab.Components.Pages.Login
 
         private String Password { get; set; } = String.Empty;
         private String PasswordConfirmation { get; set; } = String.Empty;
+
+        private void PerformRegister()
+        {
+            
+        }
     }
 }
