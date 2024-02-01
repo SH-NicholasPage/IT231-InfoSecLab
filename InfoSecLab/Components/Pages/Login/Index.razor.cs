@@ -25,19 +25,24 @@ namespace InfoSecLab.Components.Pages.Login
         private bool PasswordValid { get; set; } = true;
         private String PasswordErrorClass => PasswordValid ? String.Empty : "is-invalid";
 
+        private bool LoginSuccess { get; set; } = false;
+        private String LoginSuccessfulMsg { get; set; } = String.Empty;
+
         // This method is called when the component is first initialized
         protected override void OnInitialized()
         {
             base.OnInitialized();
         }
 
-        private async Task PerformLogin()
+        private void PerformLogin()
         {
             // ValidateForm() will return false if the form is invalid. In that case, we don't want to continue.
             if (ValidateForm() == false)
             {
                 return;
             }
+
+            //TODO: Your code here
         }
 
         private bool ValidateForm()
@@ -45,6 +50,14 @@ namespace InfoSecLab.Components.Pages.Login
             EmailValid = EmailRegex().IsMatch(Email);
             PasswordValid = String.IsNullOrEmpty(Password) == false;
             return EmailValid && PasswordValid;
+        }
+
+        private void LoginSuccessful()
+        {
+            LoginSuccess = true;
+            LoginSuccessfulMsg = $"Welcome back, {Email}!";
+            Email = String.Empty;
+            Password = String.Empty;
         }
     }
 }

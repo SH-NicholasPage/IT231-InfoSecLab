@@ -19,10 +19,42 @@ namespace InfoSecLab.Components.Pages.Login
 
         private String Password { get; set; } = String.Empty;
         private String PasswordConfirmation { get; set; } = String.Empty;
+        private bool PasswordsMatch { get; set; } = true;
+
+        private bool RegistrationSuccess { get; set; } = false;
+        private String ReigstrationSuccessfulMsg { get; set; } = String.Empty;
 
         private void PerformRegister()
         {
-            
+            // Reset variables
+            EmailValid = true;
+            PasswordsMatch = true;
+            RegistrationSuccess = false;
+
+            // Email format validation
+            if (EmailRegex().IsMatch(Email) == false)
+            { 
+                EmailValid = false;
+                return;
+            }
+
+            // Passwords match validation
+            if (Password.Equals(PasswordConfirmation) == false)
+            {
+                PasswordsMatch = false;
+                return;
+            }
+
+            //TODO: Your code here
+        }
+
+        private void RegistrationSuccessful()
+        {
+            RegistrationSuccess = true;
+            ReigstrationSuccessfulMsg = $"{Email} registered successfully!";
+            Email = String.Empty;
+            Password = String.Empty;
+            PasswordConfirmation = String.Empty;
         }
     }
 }

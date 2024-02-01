@@ -34,6 +34,16 @@
                 {
                     <div>Email is invalid</div>
                 }
+                @if (PasswordsMatch == false)
+                {
+                    <div>Passwords do not match</div>
+                }
+            </div>
+            <div class="success-messages">
+                @if (RegistrationSuccess == true)
+                {
+                    <div>@ReigstrationSuccessfulMsg</div>
+                }
             </div>
 
             <button type="submit" class="btn btn-primary w-75 py-2" id="submit-btn">

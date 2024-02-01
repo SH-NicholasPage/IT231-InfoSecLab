@@ -40,3 +40,10 @@
     color: var(--bs-danger);
     margin-bottom: 1rem;
 }
+
+.success-messages
+{
+    font-size: 1.2rem;
+    color: var(--bs-success);
+    margin-bottom: 1rem;
+}
